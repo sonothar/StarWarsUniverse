@@ -39,10 +39,12 @@ public class FilmList extends Activity {
     protected void onStart() {
         super.onStart();
 
+        loadFilms(0);
+
     }
 
     private void loadFilms(int page) {
-        starWars.getAllFilms(0, new Callback<SWModelList<Film>>() {
+        starWars.getAllFilms(page, new Callback<SWModelList<Film>>() {
             @Override
             public void success(SWModelList<Film> filmSWModelList, Response response) {
                 adapter.addFilms(filmSWModelList.results);

@@ -2,6 +2,7 @@ package de.sonothar.starwarsuniverse.ui;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,6 +36,7 @@ public class MainActivity extends ListActivity {
         switch (position){
             case 0:
                 // Films
+                startActivity(new Intent(this, FilmList.class));
                 break;
             case 1:
                 // People
