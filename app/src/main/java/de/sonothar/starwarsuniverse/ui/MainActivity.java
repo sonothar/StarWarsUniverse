@@ -1,4 +1,4 @@
-package de.sonothar.starwarsuniverse;
+package de.sonothar.starwarsuniverse.ui;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import de.sonothar.starwarsuniverse.R;
 
 
 public class MainActivity extends ListActivity {

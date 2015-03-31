@@ -1,4 +1,4 @@
-package de.sonothar.starwarsuniverse;
+package de.sonothar.starwarsuniverse.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,11 +7,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import de.sonothar.starwarsuniverse.R;
+import de.sonothar.starwarsuniverse.adapter.FilmAdapter;
 import de.sonothar.starwarsuniverse.models.Film;
 import de.sonothar.starwarsuniverse.models.SWModelList;
 import de.sonothar.starwarsuniverse.sw.StarWars;
-
-import de.sonothar.starwarsuniverse.adapter.FilmAdapter;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
@@ -41,12 +41,12 @@ public class FilmList extends Activity {
 
     }
 
-    private void loadFilms(int page){
+    private void loadFilms(int page) {
         starWars.getAllFilms(0, new Callback<SWModelList<Film>>() {
             @Override
             public void success(SWModelList<Film> filmSWModelList, Response response) {
                 adapter.addFilms(filmSWModelList.results);
-                if(filmSWModelList.hasMore())
+                if (filmSWModelList.hasMore())
                     loadFilms(filmSWModelList.getNextPage());
             }
 
