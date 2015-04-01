@@ -10,7 +10,7 @@ android:
 
     # The BuildTools version used by your project
     - build-tools-22.0.1
-	- tools
+    - tools
 
     # The SDK version used to compile your project
     - android-19
@@ -18,11 +18,11 @@ android:
     - android-22
 
     # Additional components
-	- extra
+    - extra
 
     # Specify at least one system image,
     # if you need to run emulator(s) during your tests
-	- sys-img-armeabi-v7a-android-19
+    - sys-img-armeabi-v7a-android-19
     - sys-img-x86-android-19
     - sys-img-armeabi-v7a-android-21
     - sys-img-x86-android-21
