@@ -24,8 +24,7 @@ public interface StarWars {
                           Callback<People> callback);
 
     @GET("/films/")
-    public void getAllFilms(@Query("page") int page,
-                            Callback<SWModelList<Film>> callback);
+    public void getAllFilms(Callback<SWModelList<Film>> callback);
 
     @GET("/films/{id}/")
     public void getFilm(@Path("id") int filmId,
