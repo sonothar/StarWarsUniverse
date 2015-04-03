@@ -36,9 +36,9 @@ public class SWModelList<T> implements Serializable {
     }
 
     private int getPage(String url){
-        int idx = url.indexOf("page=");
+        int idx = url.lastIndexOf("page=");
         return idx < 0 ? -1 :
-            Integer.valueOf(next.substring(idx));
+            Integer.valueOf(next.substring(idx + 5));
     }
 
 }

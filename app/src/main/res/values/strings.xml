@@ -3,4 +3,10 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_generic_list">Films</string>
+
+    <string name="msg_empty_list">No list available... \nMay the Force be with you!</string>
+    <string name="msg_list_loading">The the Force is looking for the list</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

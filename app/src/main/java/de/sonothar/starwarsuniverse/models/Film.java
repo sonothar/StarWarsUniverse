@@ -5,10 +5,6 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by Oleur on 21/12/2014.
- * Film model represents a Star Wars single film.
- */
 public class Film implements Serializable {
     public String title;
 
