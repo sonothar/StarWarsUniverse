@@ -7,6 +7,7 @@
     <color name="sa_green">#1E9618</color>
     <color name="sa_green_dark">#146310</color>
 
+    <!-- Material Color Palette: blue-grey/grey-->
     <color name="primary">#607D8B</color>
     <color name="primary_dark">#455A64</color>
     <color name="primary_light">#CFD8DC</color>
@@ -16,5 +17,16 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#B6B6B6</color>
     <color name="text">#ffffff</color>
+
+    <!-- Material Palette: red/deep-orange
+    <color name="primary">#F44336</color>
+    <color name="primary_dark">#D32F2F</color>
+    <color name="primary_light">#FFCDD2</color>
+    <color name="accent">#FF5722</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+    -->
 
 </resources>

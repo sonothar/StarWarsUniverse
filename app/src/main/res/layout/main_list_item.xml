@@ -15,8 +15,8 @@
 
         <TextView
             android:id="@+id/item_title"
-            style="@style/TextAppearance.AppCompat.Title"
-            android:textColor="@color/text_dark"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/primary_text"
             android:layout_margin="@dimen/margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,8 +24,8 @@
 
         <TextView
             android:id="@+id/item_info"
-            style="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@color/text_light"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/secondary_text"
             android:layout_margin="@dimen/margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
