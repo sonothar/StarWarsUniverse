@@ -2,6 +2,9 @@ package de.sonothar.starwarsuniverse.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
 
     private static String[] API_LIST = {"Films", "People", "Planets", "Starships", "Vehicles", "Species"};
 
+    private MenuAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,14 +33,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setupRecyclerView() {
-        MenuAdapter adapter = new MenuAdapter(API_LIST, new OnListItemClickListener() {
+        adapter = new MenuAdapter(API_LIST, new OnListItemClickListener() {
             @Override
             public void onListItemClick(int position) {
                 handleListItemClick(position);
             }
         });
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
+        recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         recyclerView.setAdapter(adapter);
@@ -44,12 +49,15 @@ public class MainActivity extends ActionBarActivity {
     private void handleListItemClick(int position) {
 
         Intent intent = new Intent(this, ListFrameActivity.class);
+        ViewHolder viewHolder = (ViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
 
-        switch (position){
+        switch (position) {
             case 0:
                 // Films
+                Pair<View, String> titlePair = Pair.create(viewHolder.getTitle(), "Films");
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, titlePair);
                 intent.setAction(ListFrameActivity.ACTION_FILM_LIST);
-                startActivity(intent);
+                ActivityCompat.startActivity(this, intent, options.toBundle());
                 break;
             case 1:
                 // People
@@ -82,16 +90,16 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    private interface OnListItemClickListener{
+    private interface OnListItemClickListener {
         void onListItemClick(int position);
     }
 
-    private static class MenuAdapter extends RecyclerView.Adapter<ViewHolder>{
+    private static class MenuAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         private String[] list;
         private OnListItemClickListener listener;
 
-        private MenuAdapter(String[] list, OnListItemClickListener listner){
+        private MenuAdapter(String[] list, OnListItemClickListener listner) {
             this.list = list;
             this.listener = listner;
         }
@@ -99,7 +107,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             View v = LayoutInflater.from(viewGroup.getContext())
-                    .inflate(R.layout.main_list_item,viewGroup, false);
+                    .inflate(R.layout.main_list_item, viewGroup, false);
             return ViewHolder.newInstance(v);
         }
 
@@ -119,9 +127,10 @@ public class MainActivity extends ActionBarActivity {
         public int getItemCount() {
             return list.length;
         }
+
     }
 
-    public static final class ViewHolder extends RecyclerView.ViewHolder{
+    public static final class ViewHolder extends RecyclerView.ViewHolder {
 
         private View parent;
         private TextView title;
@@ -138,11 +147,15 @@ public class MainActivity extends ActionBarActivity {
             this.title = title;
         }
 
-        public void setTitle(String titleStr){
+        public void setTitle(String titleStr) {
             title.setText(titleStr);
         }
 
-        public void setOnClicklistener(View.OnClickListener listener){
+        public View getTitle() {
+            return title;
+        }
+
+        public void setOnClicklistener(View.OnClickListener listener) {
             parent.setOnClickListener(listener);
         }
 
